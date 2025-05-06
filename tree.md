@@ -1,38 +1,51 @@
-# 프로젝트_폴더_구조
+# 프로젝트_폴더_구조 (2024-06 최신)
 
-- README.md
 - index.html
-- assets/
-  - css/
-    - responsive.css
-    - style.css
-    - styles.css
-  - images/
-  - js/
-    - include.js
-    - main.js
-  - temp/
-- unified/
-  - css/
-    - responsive.css
-    - style.css
-    - styles.css
-  - images/
-  - js/
-    - include.js
-    - main.js
-- img/
-- includes/
-  - footer-sub.html
-  - footer.html
-  - header-sub.html
+- README.md
+- tree.md
+- components/
   - header.html
-- js/
+  - footer.html
+- public/
+  - css/
+    - styles.css
+    - style.css
+    - responsive.css
+  - js/
+    - main.js
+    - include.js
+  - images/
+    - favicon.ico
+    - hero-image.png
+    - case-study-1.jpg
+    - case-study-2.jpg
+    - case-study-3.jpg
+    - case-study-4.jpg
+    - case-study-5.jpg
+    - case-study-6.jpg
+    - voice-recognition-tech.jpg
+    - use-case-call-center.jpg
+    - use-case-healthcare.jpg
+    - use-case-finance.jpg
+    - enterprise-voice-solution.jpg
+    - cloud-api-solution.jpg
+    - industry-voice-solution.jpg
+    - computer-vision-tech.jpg
+    - success-automotive.jpg
+    - object-detection-solution.jpg
+    - visual-inspection-solution.jpg
+    - face-recognition-solution.jpg
+    - vision-api-solution.jpg
+    - custom-vision-solution.jpg
+    - retail-success-story.jpg
 - pages/
-  - computer-vision-applications.html
-  - computer-vision-solutions.html
-  - computer-vision.html
-  - voice-recognition-solutions.html
-  - voice-recognition-use-cases.html
-  - voice-recognition.html
-  - voice-translation.html 
+  - ai/
+    - voice-recognition.html
+    - voice-recognition-use-cases.html
+    - voice-recognition-solutions.html
+    - voice-translation.html
+    - computer-vision.html
+    - computer-vision-applications.html
+    - computer-vision-solutions.html
+  - services/
+  - education/ 
