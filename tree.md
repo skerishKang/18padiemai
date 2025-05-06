@@ -1,0 +1,38 @@
+# 프로젝트_폴더_구조
+
+- README.md
+- index.html
+- assets/
+  - css/
+    - responsive.css
+    - style.css
+    - styles.css
+  - images/
+  - js/
+    - include.js
+    - main.js
+  - temp/
+- unified/
+  - css/
+    - responsive.css
+    - style.css
+    - styles.css
+  - images/
+  - js/
+    - include.js
+    - main.js
+- img/
+- includes/
+  - footer-sub.html
+  - footer.html
+  - header-sub.html
+  - header.html
+- js/
+- pages/
+  - computer-vision-applications.html
+  - computer-vision-solutions.html
+  - computer-vision.html
+  - voice-recognition-solutions.html
+  - voice-recognition-use-cases.html
+  - voice-recognition.html
+  - voice-translation.html 
