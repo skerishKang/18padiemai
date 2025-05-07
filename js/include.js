@@ -46,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 loadedCount++;
                 if (loadedCount === includes.length) {
                     console.log('모든 include 요소 로드 완료');
+                    // 모든 컴포넌트가 로드되었음을 알리는 이벤트 디스패치
+                    window.includesLoaded = true;
                     document.dispatchEvent(new CustomEvent('includesLoaded'));
                 }
             }
@@ -63,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loadedCount++;
             if (loadedCount === includes.length) {
                 console.log('모든 include 요소 로드 완료 (오류 포함)');
+                window.includesLoaded = true;
                 document.dispatchEvent(new CustomEvent('includesLoaded'));
             }
         }
@@ -71,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // include가 없는 경우 이벤트 발생
     if (includes.length === 0) {
         console.log('include 요소가 없습니다.');
+        window.includesLoaded = true;
         document.dispatchEvent(new CustomEvent('includesLoaded'));
     }
 }); 
