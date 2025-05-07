@@ -1,0 +1,241 @@
+@media (max-width: 991px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navbar-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        max-width: 350px;
+        height: calc(100vh - 80px);
+        background-color: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        transition: var(--transition);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+    }
+
+    .navbar-links.active {
+        left: 0;
+    }
+
+    .navbar-links a {
+        margin: 0;
+        padding: 1rem 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-toggle {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown-content {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: #f5f5f5;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .dropdown.show-dropdown .dropdown-content {
+        max-height: 500px;
+    }
+
+    .dropdown-content a {
+        padding: 0.8rem 1rem;
+    }
+
+    .hero {
+        padding: 7rem 0 3rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        margin-top: 3rem;
+        transform: none;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 80px);
+        background: var(--darker-bg);
+        flex-direction: column;
+        padding: 30px;
+        gap: 20px;
+        transition: all 0.4s ease;
+        overflow-y: auto;
+        z-index: 999;
+        border-right: 1px solid rgba(93, 63, 211, 0.3);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .dropdown > a {
+        padding: 10px 0;
+        width: 100%;
+        line-height: normal;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        margin: 5px 0 5px 15px;
+        background: transparent;
+        border: none;
+        border-left: 2px solid rgba(93, 63, 211, 0.3);
+        padding: 0;
+        min-width: auto;
+        width: 100%;
+    }
+
+    .dropdown-content::before {
+        display: none;
+    }
+
+    .dropdown-content.show {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding-left: 15px;
+        border-bottom: none;
+    }
+
+    .services-grid, 
+    .tech-grid,
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .service-card, .tech-item, .case-card {
+        max-width: 100%;
+    }
+
+    .tech-container {
+        justify-content: space-around;
+    }
+
+    .tech-item {
+        flex-basis: 45%;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    .btn {
+        padding: 12px 25px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+    }
+
+    .services-grid, 
+    .tech-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+    }
+
+    .tech-item {
+        flex-basis: 100%;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .service-card, 
+    .tech-card {
+        padding: 20px;
+    }
+
+    .nav-container {
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+}

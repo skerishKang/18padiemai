@@ -1,51 +1,92 @@
-# 프로젝트_폴더_구조 (2024-06 최신)
+# 프로젝트 폴더/파일 구조 (2024-06 최신)
 
-- index.html
-- README.md
-- tree.md
-- components/
-  - header.html
-  - footer.html
-- public/
-  - css/
-    - styles.css
-    - style.css
-    - responsive.css
-  - js/
-    - main.js
-    - include.js
-  - images/
-    - favicon.ico
-    - hero-image.png
-    - case-study-1.jpg
-    - case-study-2.jpg
-    - case-study-3.jpg
-    - case-study-4.jpg
-    - case-study-5.jpg
-    - case-study-6.jpg
-    - voice-recognition-tech.jpg
-    - use-case-call-center.jpg
-    - use-case-healthcare.jpg
-    - use-case-finance.jpg
-    - enterprise-voice-solution.jpg
-    - cloud-api-solution.jpg
-    - industry-voice-solution.jpg
-    - computer-vision-tech.jpg
-    - success-automotive.jpg
-    - object-detection-solution.jpg
-    - visual-inspection-solution.jpg
-    - face-recognition-solution.jpg
-    - vision-api-solution.jpg
-    - custom-vision-solution.jpg
-    - retail-success-story.jpg
-- pages/
-  - ai/
-    - voice-recognition.html
-    - voice-recognition-use-cases.html
-    - voice-recognition-solutions.html
-    - voice-translation.html
-    - computer-vision.html
-    - computer-vision-applications.html
-    - computer-vision-solutions.html
-  - services/
-  - education/ 
+./
+├── index.html
+├── 실행.txt
+├── README.md
+├── tree.md
+├── images/
+│   ├── page-header-bg1.jpg
+│   ├── page-header-bg2.jpeg
+│   ├── page-header-bg3.jpeg
+│   ├── voice-translation-header.jpg
+│   ├── case-study-4.jpeg
+│   ├── voice-recognition-tech.jpeg
+│   ├── language-processing.jpeg
+│   ├── voice-recognition.jpeg
+│   ├── voice-synthesis.jpeg
+│   ├── healthcare.jpeg
+│   ├── hero-image.jpeg
+│   ├── online-education.jpeg
+│   ├── business-conference.jpeg
+│   ├── voice-recognition-tech1.jpg
+│   ├── case-study-6.jpg
+│   ├── case-study-41.jpg
+│   ├── case-study-2.jpg
+│   ├── case-study-1.jpg
+│   ├── case-study-3.jpg
+│   ├── case-study-5.jpg
+│   └── favicon.jpg
+├── html/
+│   ├── components/
+│   │   ├── header.html
+│   │   ├── meta.html
+│   │   ├── page-header.html
+│   │   ├── cta.html
+│   │   └── footer.html
+│   └── pages/
+│       ├── about/
+│       │   ├── contact.html
+│       │   ├── careers.html
+│       │   ├── team.html
+│       │   └── company.html
+│       ├── ai-tech/
+│       │   ├── voice-translation.html
+│       │   ├── voice-cloning.html
+│       │   ├── real-time-interpretation.html
+│       │   ├── image-to-video.html
+│       │   ├── auto-summary.html
+│       │   └── voice-recognition.html
+│       ├── education/
+│       │   ├── workshops.html
+│       │   └── ai-education.html
+│       ├── services/
+│       │   ├── maintenance.html
+│       │   ├── integration.html
+│       │   ├── development.html
+│       │   └── consulting.html
+│       ├── success/
+│       │   ├── customer.html
+│       │   ├── manufacturing.html
+│       │   ├── finance.html
+│       │   ├── healthcare.html
+│       │   ├── education.html
+│       │   └── security.html
+│       └── old/
+├── css/
+│   ├── style.css
+│   ├── components/
+│   │   ├── card.css
+│   │   ├── cta.css
+│   │   └── button.css
+│   ├── layout/
+│   │   ├── hero.css
+│   │   ├── sections.css
+│   │   ├── footer.css
+│   │   ├── header.css
+│   │   └── container.css
+│   ├── utils/
+│   │   ├── responsive.css
+│   │   └── animation.css
+│   ├── base/
+│   │   ├── reset.css
+│   │   └── variables.css
+│   └── pages/
+├── js/
+│   ├── main.js
+│   └── include.js
+├── logs/
+├── tests/
+├── docs/
+│   └── project_plan.md
+└── .git/

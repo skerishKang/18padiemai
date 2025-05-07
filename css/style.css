@@ -1,0 +1,26 @@
+/* Base styles */
+@import url("/css/base/reset.css");
+@import url("/css/base/variables.css");
+
+/* Layout */
+@import url("/css/layout/container.css");
+@import url("/css/layout/header.css");
+@import url("/css/layout/footer.css");
+@import url("/css/layout/sections.css");
+@import url("/css/layout/hero.css");
+/* @import url("/css/layout/grid.css"); */
+
+/* Components */
+@import url("/css/components/button.css");
+@import url("/css/components/card.css");
+@import url("/css/components/cta.css");
+@import url("/css/components/page-header.css");
+@import url("/css/components/form.css");
+/* @import url("/css/components/navigation.css"); */
+
+/* Page specific styles */
+/* ... 다른 페이지 CSS import ... */
+
+/* Utilities */
+@import url("/css/utils/animation.css");
+@import url("/css/utils/responsive.css"); 
