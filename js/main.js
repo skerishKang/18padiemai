@@ -47,8 +47,27 @@ function initializeComponents() {
     // 초기 체크
     checkScroll();
 
-    // 스크롤 이벤트
-    window.addEventListener('scroll', checkScroll);
+    // 스크롤 이벤트 최적화 (requestAnimationFrame)
+    let scrollRafId = null;
+    function onScrollOptimized() {
+        if (scrollRafId) return;
+        scrollRafId = window.requestAnimationFrame(() => {
+            checkScroll();
+            window.handleStickyHeader();
+            highlightNavigation();
+            // 헤더 스타일 변경
+            const header = document.querySelector('header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            }
+            scrollRafId = null;
+        });
+    }
+    window.addEventListener('scroll', onScrollOptimized);
 
     // 스티키 헤더
     window.handleStickyHeader = function() {
@@ -64,9 +83,6 @@ function initializeComponents() {
 
     const scrollThreshold = 100;
     
-    // 스크롤 이벤트에 스티키 헤더 핸들러 추가
-    window.addEventListener('scroll', window.handleStickyHeader);
-
     // 스크롤 시 네비게이션 하이라이트
     const sections = document.querySelectorAll('section[id]');
 
@@ -89,20 +105,6 @@ function initializeComponents() {
             }
         });
     }
-
-    window.addEventListener('scroll', highlightNavigation);
-
-    // 스크롤 이벤트에 따른 헤더 스타일 변경
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (header) {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-    });
 
     // 애니메이션 효과 (Intersection Observer API 사용)
     const observerOptions = {
