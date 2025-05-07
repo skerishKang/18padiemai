@@ -24,4 +24,10 @@
 
 .cta .btn:hover {
     background-color: var(--light-bg);
+}
+
+.cta .hero-btns, .cta .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 } 

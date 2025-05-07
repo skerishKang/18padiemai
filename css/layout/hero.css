@@ -1,5 +1,5 @@
 .hero {
-    padding: 10rem 0 7rem;
+    padding: 10rem 0 5rem;
     background-color: var(--light-bg);
     position: relative;
     overflow: hidden;
@@ -18,7 +18,7 @@
 .hero .container {
     position: relative;
     z-index: 2;
-    padding: 0 15px;
+    padding: 0;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -28,10 +28,11 @@
 }
 
 .hero-content {
-    max-width: 550px;
+    max-width: 560px;
     position: relative;
     z-index: 2;
-    flex: 0 0 50%;
+    flex: 0 0 48%;
+    padding-left: 1rem;
 }
 
 .hero h1 {
@@ -59,8 +60,8 @@
 
 .hero-image-container {
     position: relative;
-    width: 40%;
-    max-width: 450px;
+    width: 45%;
+    max-width: 480px;
     height: 350px;
     overflow: hidden;
     border-radius: 8px;

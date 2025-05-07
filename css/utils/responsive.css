@@ -179,11 +179,11 @@
         padding: 12px 25px;
     }
 
-    .hero-buttons {
+    .hero-buttons, .hero-btns {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         gap: 15px;
-        align-items: center;
+        justify-content: center;
     }
 
     .btn-secondary {

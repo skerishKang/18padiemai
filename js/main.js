@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navbarLinks = document.querySelector('.navbar-links');
     
-    if (mobileMenuBtn) {
+    if (mobileMenuBtn && navbarLinks) {
         mobileMenuBtn.addEventListener('click', function() {
             this.classList.toggle('active');
             navbarLinks.classList.toggle('active');
@@ -18,14 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth <= 991) {
                 e.preventDefault();
                 const dropdown = this.parentElement;
-                dropdown.classList.toggle('active');
-                
-                // 다른 활성화된 드롭다운 닫기
-                dropdownToggles.forEach(otherToggle => {
-                    if (otherToggle !== toggle) {
-                        otherToggle.parentElement.classList.remove('active');
-                    }
-                });
+                if (dropdown) {
+                    dropdown.classList.toggle('show-dropdown');
+                    
+                    // 다른 활성화된 드롭다운 닫기
+                    dropdownToggles.forEach(otherToggle => {
+                        const parentEl = otherToggle.parentElement;
+                        if (otherToggle !== toggle && parentEl) {
+                            parentEl.classList.remove('show-dropdown');
+                        }
+                    });
+                }
             }
         });
     });
@@ -85,10 +88,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionHeight = section.offsetHeight;
             const sectionId = section.getAttribute('id');
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                document.querySelector(`.navbar-links a[href*=${sectionId}]`)?.classList.add('active');
-            } else {
-                document.querySelector(`.navbar-links a[href*=${sectionId}]`)?.classList.remove('active');
+            const navLink = document.querySelector(`.navbar-links a[href*=${sectionId}]`);
+            if (navLink) {
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLink.classList.add('active');
+                } else {
+                    navLink.classList.remove('active');
+                }
             }
         });
     }
@@ -99,14 +105,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         if (window.innerWidth < 992) {
             if (!e.target.closest('.navbar')) {
-                if (navbarLinks.classList.contains('active')) {
+                if (navbarLinks && mobileMenuBtn && navbarLinks.classList.contains('active')) {
                     mobileMenuBtn.classList.remove('active');
                     navbarLinks.classList.remove('active');
                 }
                 
                 // 열려있는 모든 드롭다운 닫기
                 document.querySelectorAll('.dropdown').forEach(dropdown => {
-                    dropdown.classList.remove('show-dropdown');
+                    if (dropdown) {
+                        dropdown.classList.remove('show-dropdown');
+                    }
                 });
             }
         }
@@ -115,13 +123,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // 윈도우 크기 변경 시 모바일 메뉴 초기화
     window.addEventListener('resize', function() {
         if (window.innerWidth >= 992) {
-            if (mobileMenuBtn.classList.contains('active')) {
+            if (mobileMenuBtn && navbarLinks && mobileMenuBtn.classList.contains('active')) {
                 mobileMenuBtn.classList.remove('active');
                 navbarLinks.classList.remove('active');
             }
             
             document.querySelectorAll('.dropdown').forEach(dropdown => {
-                dropdown.classList.remove('show-dropdown');
+                if (dropdown) {
+                    dropdown.classList.remove('show-dropdown');
+                }
             });
         }
     });
@@ -148,55 +158,67 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fade-in 애니메이션
     const fadeObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && entry.target) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    fadeElements.forEach(el => {
-        fadeObserver.observe(el);
-    });
+    if (fadeElements && fadeElements.length > 0) {
+        fadeElements.forEach(el => {
+            if (el) {
+                fadeObserver.observe(el);
+            }
+        });
+    }
     
     // Slide-in 애니메이션
     const slideObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
+            if (entry.isIntersecting && entry.target) {
                 entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
-    slideElements.forEach(el => {
-        slideObserver.observe(el);
-    });
+    if (slideElements && slideElements.length > 0) {
+        slideElements.forEach(el => {
+            if (el) {
+                slideObserver.observe(el);
+            }
+        });
+    }
 
     // 현재 페이지 링크 활성화
     const currentLocation = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-links a');
     
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // 현재 페이지와 링크 경로가 일치하는 경우 active 클래스 추가
-        if (currentLocation.includes(linkPath) && linkPath !== '#' && linkPath !== 'index.html' && linkPath !== '/') {
-            link.classList.add('active');
+    if (navLinks && navLinks.length > 0) {
+        navLinks.forEach(link => {
+            if (!link) return;
             
-            // 드롭다운 내부의 링크인 경우 부모 드롭다운도 활성화
-            const parentDropdown = link.closest('.dropdown');
-            if (parentDropdown) {
-                const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
-                if (dropdownToggle) {
-                    dropdownToggle.classList.add('active');
+            const linkPath = link.getAttribute('href');
+            
+            // 현재 페이지와 링크 경로가 일치하는 경우 active 클래스 추가
+            if (linkPath && currentLocation.includes(linkPath) && linkPath !== '#' && linkPath !== 'index.html' && linkPath !== '/') {
+                link.classList.add('active');
+                
+                // 드롭다운 내부의 링크인 경우 부모 드롭다운도 활성화
+                const parentDropdown = link.closest('.dropdown');
+                if (parentDropdown) {
+                    const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+                    if (dropdownToggle) {
+                        dropdownToggle.classList.add('active');
+                    }
                 }
+            } else if ((currentLocation === '/' || currentLocation.includes('index.html')) && (linkPath === 'index.html' || linkPath === '/')) {
+                // 홈페이지인 경우 홈 링크 활성화
+                link.classList.add('active');
             }
-        } else if ((currentLocation === '/' || currentLocation.includes('index.html')) && (linkPath === 'index.html' || linkPath === '/')) {
-            // 홈페이지인 경우 홈 링크 활성화
-            link.classList.add('active');
-        }
-    });
+        });
+    }
     
     // 폼 유효성 검사 (문의 양식이 있는 경우)
     const contactForm = document.querySelector('.contact-form');
@@ -210,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const requiredFields = contactForm.querySelectorAll('[required]');
             
             requiredFields.forEach(field => {
-                if (!field.value.trim()) {
+                if (!field || !field.value || !field.value.trim()) {
                     isValid = false;
                     field.classList.add('error');
                 } else {
@@ -245,33 +267,38 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('hero-image-1'),
             document.getElementById('hero-image-2'),
             document.getElementById('hero-image-3')
-        ];
-        
-        let currentImageIndex = 0;
-        
-        function changeActiveImage() {
-            // 모든 이미지 비활성화
-            heroImages.forEach(img => {
-                if (img) {
-                    img.classList.remove('active');
-                }
-            });
+        ].filter(img => img !== null);
+
+        if (heroImages.length > 0) {
+            let currentImageIndex = 0;
             
-            // 현재 이미지 활성화
-            if (heroImages[currentImageIndex]) {
-                heroImages[currentImageIndex].classList.add('active');
-                console.log('이미지 변경:', currentImageIndex + 1);
+            // 첫 번째 이미지 활성화
+            if (heroImages[0]) {
+                heroImages[0].classList.add('active');
             }
             
-            // 다음 이미지 인덱스로 업데이트
-            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            // 이미지 변경 함수
+            function changeActiveImage() {
+                // 모든 이미지 비활성화
+                heroImages.forEach(img => {
+                    if (img) {
+                        img.classList.remove('active');
+                    }
+                });
+                
+                // 현재 이미지 활성화
+                if (heroImages[currentImageIndex]) {
+                    heroImages[currentImageIndex].classList.add('active');
+                    console.log('이미지 변경:', currentImageIndex + 1);
+                }
+                
+                // 다음 이미지 인덱스로 업데이트
+                currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            }
+            
+            // 5초마다 이미지 변경
+            setInterval(changeActiveImage, 5000);
         }
-        
-        // 초기 이미지 설정
-        changeActiveImage();
-        
-        // 2초마다 이미지 변경
-        setInterval(changeActiveImage, 2000);
     }
 });
 

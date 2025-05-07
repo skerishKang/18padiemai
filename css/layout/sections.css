@@ -25,6 +25,11 @@ section {
     padding: 5rem 0;
 }
 
+/* 첫 번째 섹션(AI 기술)의 상단 패딩 조정 */
+#ai-technologies {
+    padding-top: 3rem;
+}
+
 .bg-light {
     background-color: var(--light-bg);
 } 
