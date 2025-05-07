@@ -300,7 +300,7 @@ function initializeComponents() {
                     console.warn(`[Hero Slider] ${index}번 이미지가 null입니다.`);
                     return;
                 }
-                img.style.opacity = '0';
+                // 기본 스타일 적용
                 img.style.position = 'absolute';
                 img.style.top = '0';
                 img.style.left = '0';
@@ -308,17 +308,20 @@ function initializeComponents() {
                 img.style.height = '100%';
                 img.style.objectFit = 'cover';
                 img.style.transition = 'opacity 0.8s ease-in-out';
+                
+                // 첫 번째 이미지는 표시, 나머지는 숨김
+                if (index === 0) {
+                    img.style.opacity = '1';
+                    img.style.zIndex = '2';
+                } else {
+                    img.style.opacity = '0';
+                    img.style.zIndex = '1';
+                }
+                
                 console.log(`[Hero Slider] ${index}번 이미지 초기 스타일 적용: opacity=${img.style.opacity}, position=${img.style.position}`);
             });
             
-            // 초기 이미지 활성화
-            if (heroImages[activeIndex]) {
-                heroImages[activeIndex].style.opacity = '1';
-                console.log(`[Hero Slider] 초기 활성화 이미지 인덱스: ${activeIndex}, opacity: ${heroImages[activeIndex].style.opacity}`);
-            } else {
-                console.error(`[Hero Slider] 초기 활성화할 ${activeIndex}번 이미지가 존재하지 않습니다.`);
-            }
-            
+            // 이미지 슬라이드 변경 함수
             function changeActiveImage() {
                 if (!heroImages[activeIndex]) {
                     console.error(`[Hero Slider - changeActiveImage] 현재 activeIndex(${activeIndex})에 해당하는 이미지가 없습니다.`);
@@ -328,6 +331,7 @@ function initializeComponents() {
                 
                 // 현재 활성 이미지 비활성화
                 heroImages[activeIndex].style.opacity = '0';
+                heroImages[activeIndex].style.zIndex = '1';
                 console.log(`[Hero Slider] 이전 이미지 (${activeIndex}) opacity: ${heroImages[activeIndex].style.opacity}`);
                 
                 // 다음 이미지 인덱스 계산
@@ -340,22 +344,33 @@ function initializeComponents() {
                 
                 // 새 이미지 활성화
                 heroImages[activeIndex].style.opacity = '1';
+                heroImages[activeIndex].style.zIndex = '2';
                 console.log(`[Hero Slider] 새 활성 인덱스: ${activeIndex}, opacity: ${heroImages[activeIndex].style.opacity}`);
             }
             
-            // 일정 간격으로 이미지 변경 - 첫 실행은 지연시켜서 시작
+            // 일정 간격으로 이미지 변경 - 첫 실행은 3초 후 시작
             setTimeout(() => {
                 console.log('[Hero Slider] 첫 이미지 변경 인터벌 시작...');
-                setInterval(changeActiveImage, 4000);
-            }, 100);
+                setInterval(changeActiveImage, 5000); // 5초마다 이미지 변경
+            }, 3000);
         } else if (heroImages && heroImages.length === 1) {
             console.log('[Hero Slider] 이미지가 1개만 있으므로 슬라이더를 작동하지 않습니다.');
             if (heroImages[0]) {
+                // 단일 이미지인 경우 전체 영역을 채우도록 설정
                 heroImages[0].style.opacity = '1';
-                heroImages[0].style.position = 'relative';
+                heroImages[0].style.position = 'absolute';
+                heroImages[0].style.top = '0';
+                heroImages[0].style.left = '0';
+                heroImages[0].style.width = '100%';
+                heroImages[0].style.height = '100%';
+                heroImages[0].style.objectFit = 'cover';
             }
         } else {
             console.log('[Hero Slider] 이미지를 찾지 못했거나 heroImages가 null입니다.');
+            // 이미지가 없을 경우 컨테이너에 기본 배경색 추가
+            if (heroSliderContainer) {
+                heroSliderContainer.style.backgroundColor = 'var(--light-bg)';
+            }
         }
     } else {
         console.log('[Hero Slider] .hero-image-container 요소를 찾지 못했습니다. (index.html이 아닐 수 있음)');
