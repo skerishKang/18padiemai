@@ -288,6 +288,7 @@ function initializeComponents() {
     console.log('[Hero Slider] 컨테이너 요소:', heroSliderContainer);
     
     if (heroSliderContainer) {
+        logToScreen('[Hero Slider] 모바일에서도 실행됨');
         const heroImages = heroSliderContainer.querySelectorAll('.hero-image');
         console.log('[Hero Slider] 이미지 요소들:', heroImages);
         console.log('[Hero Slider] 발견된 이미지 개수:', heroImages.length);
@@ -379,4 +380,10 @@ function initializeComponents() {
     }
     
     console.log('컴포넌트 초기화 완료 [main.js]');
+}
+
+// 디버그 로그를 화면에 출력하는 함수
+function logToScreen(msg) {
+    var el = document.getElementById('debug-log');
+    if (el) el.innerText += msg + '\n';
 } 
