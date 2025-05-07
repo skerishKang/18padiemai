@@ -4,6 +4,7 @@
     box-shadow: var(--box-shadow);
     padding: 2rem;
     transition: var(--transition);
+    text-align: center;
 }
 
 .service-card:hover {
@@ -30,6 +31,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
 }
 
 .ai-technology-card {
@@ -64,6 +66,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
+    width: 100%;
 }
 
 .case-card {
@@ -109,6 +112,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    width: 100%;
 }
 
 @media (max-width: 900px) {
@@ -127,6 +131,7 @@
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(3, 1fr);
+    width: 100%;
 }
 
 /* 새로운 기능 카드 스타일 */
@@ -135,6 +140,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    width: 100%;
 }
 
 @media (max-width: 992px) {

@@ -468,20 +468,20 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - 모바일 화면에서 스타일 및 기능 추가 테스트
 - 메뉴 항목 중첩 구조 개선 검토
 
-## [2024-06] 섹션 제목 정렬 문제 해결 (최종)
+## [2024-06] 섹션 제목 정렬 문제 해결 (Flexbox 정렬 수정)
 
 ### 완료된 일
-- 섹션 제목 및 부제목 가운데 정렬 문제 최종 해결
-  - HTML 구조 분석: h2.section-title, p.section-subtitle 형태의 구조 확인
-  - CSS 파일 구조와 로드 순서 검토: style.css의 @import 순서와 우선순위 확인
-  - sections.css 파일에서 .section-title과 .section-subtitle에 최종적으로 text-align: center !important 적용
-  - !important 속성을 사용하여 다른 CSS 규칙에 의한 충돌 방지
-  - 반응형 미디어 쿼리 내 불필요한 중복 제거
-- CTA 섹션 버튼 정렬 개선
-  - 버튼 컨테이너를 중앙 정렬로 변경하여 전체적인 레이아웃 일관성 강화
-  - 모바일 환경과 데스크탑 환경 모두에서 일관된 정렬 적용
+- 섹션 제목 및 콘텐츠 가운데 정렬 문제 해결
+  - 개발자 도구를 통한 핵심 문제 분석: 섹션 내 .container가 Flexbox로 설정되어 정렬 문제 발생
+  - 섹션 내부의 .container에 Flexbox 속성 적용:
+    - display: flex
+    - flex-direction: column
+    - align-items: center
+  - 헤더와 푸터의 .container는 기존 레이아웃 유지 (display: block)
+  - 그리드 컨테이너(ai-technologies-container, case-studies-container 등)에 width: 100% 적용
+  - 이로써 모든 섹션에서 제목, 부제목과 콘텐츠가 일관되게 가운데 정렬됨
 
 ### 해야할 일
-- 브라우저 캐시 관련 이슈 확인: 강력 새로고침으로 테스트
-- 모든 페이지에서 섹션 제목 정렬 테스트 및 확인
-- 다른 텍스트 컴포넌트에도 일관된 중앙 정렬 스타일 적용 (필요시) 
+- 다양한 화면 크기와 브라우저에서 레이아웃 확인
+- 특수 레이아웃이 필요한 섹션이 있는지 확인
+- 다른 페이지에서도 동일한 스타일 적용 확인 
