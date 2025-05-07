@@ -3,19 +3,7 @@
     margin-bottom: 2rem;
     position: relative;
     padding-bottom: 1rem;
-    text-align: center !important;
-}
-
-.section-title h2 {
-    text-align: center !important;
-    margin-bottom: 0.5rem;
-}
-
-.section-title p {
-    text-align: center !important;
-    color: var(--light-text);
-    font-size: 1.1rem;
-    margin-bottom: 0;
+    text-align: center;
 }
 
 .section-title:after {
@@ -33,7 +21,7 @@
     color: var(--light-text);
     font-size: 1.2rem;
     margin-bottom: 3rem;
-    text-align: center !important;
+    text-align: center;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
