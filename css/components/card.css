@@ -5,6 +5,9 @@
     padding: 2rem;
     transition: var(--transition);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .service-card:hover {
@@ -25,6 +28,14 @@
 .service-description {
     color: var(--light-text);
     margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.service-card .btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ai-technologies-container {
@@ -40,6 +51,9 @@
     box-shadow: var(--box-shadow);
     padding: 2rem;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .ai-technology-card:hover {
@@ -60,6 +74,14 @@
 .ai-technology-description {
     color: var(--light-text);
     margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.ai-technology-card .btn {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .case-studies-container {
@@ -75,6 +97,9 @@
     overflow: hidden;
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .case-card:hover {
@@ -90,6 +115,9 @@
 
 .case-content {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .case-category {
@@ -106,6 +134,13 @@
 .case-description {
     color: var(--light-text);
     margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.case-content .btn {
+    display: block;
+    width: fit-content;
+    margin-top: auto;
 }
 
 .services-education-container {

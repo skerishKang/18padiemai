@@ -5,6 +5,26 @@
   <title>채용 정보 - PadiemAI</title>
   <meta name="description" content="PadiemAI는 AI 분야의 열정과 역량을 갖춘 인재를 상시 모집하고 있습니다.">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .values-grid, .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    @media (max-width: 992px) {
+      .values-grid, .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .values-grid, .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div data-include="/html/components/header.html"></div>
@@ -46,6 +66,18 @@
             <i class="fas fa-bullseye service-icon"></i>
             <h3 class="service-title">목표 지향</h3>
             <p class="service-description">명확한 목표를 설정하고 이를 달성하기 위해 체계적으로 접근하는 사람</p>
+          </div>
+          
+          <div class="service-card">
+            <i class="fas fa-rocket service-icon"></i>
+            <h3 class="service-title">혁신 추구</h3>
+            <p class="service-description">현재에 안주하지 않고 지속적인 개선과 혁신을 추구하며 더 나은 방법을 모색하는 사람</p>
+          </div>
+          
+          <div class="service-card">
+            <i class="fas fa-globe service-icon"></i>
+            <h3 class="service-title">글로벌 마인드</h3>
+            <p class="service-description">다양한 문화와 관점을 존중하고, 글로벌 시장에서의 성공을 위해 열린 사고를 가진 사람</p>
           </div>
         </div>
       </div>

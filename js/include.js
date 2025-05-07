@@ -1,5 +1,10 @@
 // 페이지 내의 data-include 속성이 있는 모든 요소를 찾아서 해당 파일을 로드하는 함수
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM 로드 완료 - include.js');
+    
+    // includesLoaded 플래그 초기화
+    window.includesLoaded = false;
+    
     // data-include 속성이 있는 모든 요소 찾기
     const includes = document.querySelectorAll('[data-include]');
     let loadedCount = 0;
@@ -44,11 +49,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // 모든 include가 로드되었는지 확인
                 loadedCount++;
+                console.log(`[${index}] 로드 진행 상태: ${loadedCount}/${includes.length}`);
+                
                 if (loadedCount === includes.length) {
-                    console.log('모든 include 요소 로드 완료');
+                    console.log('모든 include 요소 로드 완료 - includesLoaded 이벤트 발생');
                     // 모든 컴포넌트가 로드되었음을 알리는 이벤트 디스패치
                     window.includesLoaded = true;
-                    document.dispatchEvent(new CustomEvent('includesLoaded'));
+                    
+                    // CustomEvent 생성
+                    const event = new CustomEvent('includesLoaded');
+                    
+                    // 이벤트 디스패치 (10ms 지연으로 안정성 확보)
+                    setTimeout(function() {
+                        document.dispatchEvent(event);
+                        console.log('includesLoaded 이벤트가 발생했습니다!');
+                    }, 10);
                 }
             }
         };
@@ -63,18 +78,36 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 오류가 있더라도 포함 항목 로드가 완료되었는지 확인
             loadedCount++;
+            console.log(`[${index}] 로드 진행 상태(오류 발생): ${loadedCount}/${includes.length}`);
+            
             if (loadedCount === includes.length) {
-                console.log('모든 include 요소 로드 완료 (오류 포함)');
+                console.log('모든 include 요소 로드 완료 (오류 포함) - includesLoaded 이벤트 발생');
                 window.includesLoaded = true;
-                document.dispatchEvent(new CustomEvent('includesLoaded'));
+                
+                // CustomEvent 생성
+                const event = new CustomEvent('includesLoaded');
+                
+                // 이벤트 디스패치 (10ms 지연으로 안정성 확보)
+                setTimeout(function() {
+                    document.dispatchEvent(event);
+                    console.log('includesLoaded 이벤트가 발생했습니다! (오류 포함)');
+                }, 10);
             }
         }
     });
     
     // include가 없는 경우 이벤트 발생
     if (includes.length === 0) {
-        console.log('include 요소가 없습니다.');
+        console.log('include 요소가 없습니다 - includesLoaded 이벤트 즉시 발생');
         window.includesLoaded = true;
-        document.dispatchEvent(new CustomEvent('includesLoaded'));
+        
+        // CustomEvent 생성
+        const event = new CustomEvent('includesLoaded');
+        
+        // 이벤트 디스패치 (10ms 지연으로 안정성 확보)
+        setTimeout(function() {
+            document.dispatchEvent(event);
+            console.log('includesLoaded 이벤트가 발생했습니다! (include 요소 없음)');
+        }, 10);
     }
 }); 

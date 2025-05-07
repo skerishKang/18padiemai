@@ -1,0 +1,15 @@
+# 모바일 햄버거 메뉴 디버깅 로그
+- 날짜: 2024-06-27
+- 문제: 특정 페이지에서 모바일 햄버거 메뉴가 보이지 않음
+- 영향 받는 페이지: voice-recognition.html
+
+## 디버깅 내용
+1. favicon.ico 파일 존재 확인 - 확인됨
+2. mobile-menu-btn 요소 존재 확인 - header.html에 존재함
+3. CSS 로딩 순서 확인 - style.css에서 responsive.css 마지막에 로드됨
+4. JavaScript 로딩 확인 - include.js, main.js, mobile-menu.js 로드됨
+
+## 시도한 해결책
+1. responsive.css 내 !important 속성 확인
+2. JavaScript 초기화 순서 확인
+3. DOM 로드 이후 요소 스타일 확인 

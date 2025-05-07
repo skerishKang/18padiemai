@@ -1,56 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM 로드 완료');
+    console.log('DOM 로드 완료 [main.js]');
     
     // 컴포넌트 로드 완료 이벤트를 확인
     if (window.includesLoaded) {
+        console.log('[main.js] includesLoaded 플래그가 이미 true입니다. initializeComponents() 호출.');
         initializeComponents();
     } else {
         // includesLoaded 이벤트가 발생하면 초기화 실행
-        document.addEventListener('includesLoaded', initializeComponents);
+        console.log('[main.js] includesLoaded 이벤트를 기다립니다.');
+        document.addEventListener('includesLoaded', function() {
+            console.log('[main.js] includesLoaded 이벤트 수신! initializeComponents() 호출.');
+            initializeComponents();
+        }, { once: true });
     }
 });
 
 function initializeComponents() {
     console.log('컴포넌트 초기화 시작');
     
-    // 모바일 메뉴 토글
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navbarLinks = document.querySelector('.navbar-links');
-    
-    if (mobileMenuBtn && navbarLinks) {
-        console.log('모바일 메뉴 요소 찾음');
-        mobileMenuBtn.addEventListener('click', function() {
-            console.log('모바일 메뉴 토글');
-            this.classList.toggle('active');
-            navbarLinks.classList.toggle('active');
-        });
-    } else {
-        console.log('모바일 메뉴 요소 없음');
-    }
-
-    // 드롭다운 메뉴 (모바일)
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-    
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 991) {
-                e.preventDefault();
-                const dropdown = this.parentElement;
-                if (dropdown) {
-                    dropdown.classList.toggle('show-dropdown');
-                    
-                    // 다른 활성화된 드롭다운 닫기
-                    dropdownToggles.forEach(otherToggle => {
-                        const parentEl = otherToggle.parentElement;
-                        if (otherToggle !== toggle && parentEl) {
-                            parentEl.classList.remove('show-dropdown');
-                        }
-                    });
-                }
-            }
-        });
-    });
-
     // 스크롤 애니메이션
     const fadeElements = document.querySelectorAll('.fade-in');
     const slideElements = document.querySelectorAll('.slide-in');
@@ -124,43 +91,6 @@ function initializeComponents() {
     }
 
     window.addEventListener('scroll', highlightNavigation);
-
-    // 모바일 외부 클릭 시 메뉴 닫기
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth < 992) {
-            if (navbarLinks && mobileMenuBtn) { // 변수가 존재하는지 먼저 확인
-                if (!e.target.closest('.navbar')) {
-                    if (navbarLinks.classList.contains('active')) {
-                        mobileMenuBtn.classList.remove('active');
-                        navbarLinks.classList.remove('active');
-                    }
-                    
-                    // 열려있는 모든 드롭다운 닫기
-                    document.querySelectorAll('.dropdown').forEach(dropdown => {
-                        if (dropdown) {
-                            dropdown.classList.remove('show-dropdown');
-                        }
-                    });
-                }
-            }
-        }
-    });
-
-    // 윈도우 크기 변경 시 모바일 메뉴 초기화
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 992) {
-            if (mobileMenuBtn && navbarLinks && mobileMenuBtn.classList.contains('active')) {
-                mobileMenuBtn.classList.remove('active');
-                navbarLinks.classList.remove('active');
-            }
-            
-            document.querySelectorAll('.dropdown').forEach(dropdown => {
-                if (dropdown) {
-                    dropdown.classList.remove('show-dropdown');
-                }
-            });
-        }
-    });
 
     // 스크롤 이벤트에 따른 헤더 스타일 변경
     window.addEventListener('scroll', function() {
@@ -352,32 +282,84 @@ function initializeComponents() {
     }
     
     // 히어로 섹션 이미지 슬라이더 (index.html에만 있음)
-    const heroSlider = document.querySelector('.hero-image-slider');
+    const heroSliderContainer = document.querySelector('.hero-image-container');
+    console.log('[Hero Slider] 컨테이너 요소:', heroSliderContainer);
     
-    if (heroSlider) {
-        const heroImages = heroSlider.querySelectorAll('img');
+    if (heroSliderContainer) {
+        const heroImages = heroSliderContainer.querySelectorAll('.hero-image');
+        console.log('[Hero Slider] 이미지 요소들:', heroImages);
+        console.log('[Hero Slider] 발견된 이미지 개수:', heroImages.length);
         
         if (heroImages && heroImages.length > 1) {
             let activeIndex = 0;
             
+            console.log('[Hero Slider] 초기 스타일 설정 시작...');
+            // 히어로 이미지 초기 스타일 설정
+            heroImages.forEach((img, index) => {
+                if (!img) {
+                    console.warn(`[Hero Slider] ${index}번 이미지가 null입니다.`);
+                    return;
+                }
+                img.style.opacity = '0';
+                img.style.position = 'absolute';
+                img.style.top = '0';
+                img.style.left = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                img.style.transition = 'opacity 0.8s ease-in-out';
+                console.log(`[Hero Slider] ${index}번 이미지 초기 스타일 적용: opacity=${img.style.opacity}, position=${img.style.position}`);
+            });
+            
             // 초기 이미지 활성화
-            heroImages[activeIndex].classList.add('active');
+            if (heroImages[activeIndex]) {
+                heroImages[activeIndex].style.opacity = '1';
+                console.log(`[Hero Slider] 초기 활성화 이미지 인덱스: ${activeIndex}, opacity: ${heroImages[activeIndex].style.opacity}`);
+            } else {
+                console.error(`[Hero Slider] 초기 활성화할 ${activeIndex}번 이미지가 존재하지 않습니다.`);
+            }
             
             function changeActiveImage() {
+                if (!heroImages[activeIndex]) {
+                    console.error(`[Hero Slider - changeActiveImage] 현재 activeIndex(${activeIndex})에 해당하는 이미지가 없습니다.`);
+                    return;
+                }
+                console.log(`[Hero Slider] 이미지 변경 시도 - 현재 활성 인덱스: ${activeIndex}`);
+                
                 // 현재 활성 이미지 비활성화
-                heroImages[activeIndex].classList.remove('active');
+                heroImages[activeIndex].style.opacity = '0';
+                console.log(`[Hero Slider] 이전 이미지 (${activeIndex}) opacity: ${heroImages[activeIndex].style.opacity}`);
                 
                 // 다음 이미지 인덱스 계산
                 activeIndex = (activeIndex + 1) % heroImages.length;
                 
+                if (!heroImages[activeIndex]) {
+                    console.error(`[Hero Slider - changeActiveImage] 다음 activeIndex(${activeIndex})에 해당하는 이미지가 없습니다.`);
+                    return;
+                }
+                
                 // 새 이미지 활성화
-                heroImages[activeIndex].classList.add('active');
+                heroImages[activeIndex].style.opacity = '1';
+                console.log(`[Hero Slider] 새 활성 인덱스: ${activeIndex}, opacity: ${heroImages[activeIndex].style.opacity}`);
             }
             
-            // 일정 간격으로 이미지 변경
-            setInterval(changeActiveImage, 5000);
+            // 일정 간격으로 이미지 변경 - 첫 실행은 지연시켜서 시작
+            setTimeout(() => {
+                console.log('[Hero Slider] 첫 이미지 변경 인터벌 시작...');
+                setInterval(changeActiveImage, 4000);
+            }, 100);
+        } else if (heroImages && heroImages.length === 1) {
+            console.log('[Hero Slider] 이미지가 1개만 있으므로 슬라이더를 작동하지 않습니다.');
+            if (heroImages[0]) {
+                heroImages[0].style.opacity = '1';
+                heroImages[0].style.position = 'relative';
+            }
+        } else {
+            console.log('[Hero Slider] 이미지를 찾지 못했거나 heroImages가 null입니다.');
         }
+    } else {
+        console.log('[Hero Slider] .hero-image-container 요소를 찾지 못했습니다. (index.html이 아닐 수 있음)');
     }
     
-    console.log('컴포넌트 초기화 완료');
+    console.log('컴포넌트 초기화 완료 [main.js]');
 } 

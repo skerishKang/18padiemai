@@ -10,12 +10,7 @@
     <div data-include="/html/components/header.html"></div>
 
     <!-- 페이지 헤더 -->
-    <section class="page-header voice-synthesis-header">
-        <div class="container">
-            <h1>음성 합성 기술</h1>
-            <p>자연스럽고 감정이 담긴 음성으로 디지털 경험을 혁신하세요</p>
-        </div>
-    </section>
+    <div data-include="/html/components/page-header.html" data-title="음성 합성 기술" data-image="audiobook.jpeg"></div>
 
     <!-- 기술 소개 섹션 -->
     <section class="section tech-intro" style="padding: 80px 0; background: var(--light-bg);">
@@ -33,8 +28,10 @@
                         다국어 지원, 맞춤형 음성 제작, 실시간 처리 능력을 갖춘 PadiemAI의 음성 합성 솔루션으로 고객 경험과 비즈니스 효율성을 한 단계 높여보세요.
                     </p>
                 </div>
-                <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                    <img src="/images/voice-synthesis.jpeg" alt="음성 합성 기술 이미지" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center;">
+                    <div style="width: 100%; height: 250px; overflow: hidden; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/audiobook.jpeg" alt="음성 합성 기술 이미지" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                 </div>
             </div>
         </div>
@@ -76,6 +73,20 @@
                     <h3>실시간 처리</h3>
                     <p style="color: var(--light-text);">대용량 텍스트도 빠르게 처리하여 콘텐츠 제작 및 배포 시간을 단축하고 업무 효율성을 높입니다.</p>
                 </div>
+                <div class="service-card animate" style="background-color: white; box-shadow: var(--box-shadow);">
+                    <div class="service-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>음성 조절 기능</h3>
+                    <p style="color: var(--light-text);">음높이, 속도, 억양, 강세 등 다양한 매개변수를 세밀하게 조절하여 상황과 목적에 맞는 완벽한 음성을 생성합니다.</p>
+                </div>
+                <div class="service-card animate" style="background-color: white; box-shadow: var(--box-shadow);">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>API 연동 지원</h3>
+                    <p style="color: var(--light-text);">다양한 앱과 서비스에 쉽게 통합할 수 있는 강력한 API를 제공하여 기존 시스템에 음성 기능을 손쉽게 추가할 수 있습니다.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -89,8 +100,8 @@
             </div>
             <div class="tech-grid">
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/customer-service.jpeg" alt="고객 서비스">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/aichatbot.jpeg" alt="고객 서비스" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">고객 서비스</h3>
@@ -99,8 +110,8 @@
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/audiobook.jpeg" alt="오디오북 제작">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/audiobook.jpeg" alt="오디오북 제작" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">오디오북 제작</h3>
@@ -109,13 +120,13 @@
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/marketing.jpeg" alt="광고 및 마케팅">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/multilang.jpeg" alt="다국어 교육 환경" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
-                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">광고 및 마케팅</h3>
-                        <p style="color: var(--light-text); margin-bottom: 15px;">브랜드 특성에 맞는 맞춤형 음성으로 일관된 브랜드 메시지를 전달하는 광고 및 홍보 콘텐츠를 제작합니다.</p>
-                        <a href="/html/pages/success/marketing.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block;">사례 보기 →</a>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">다국어 교육 환경</h3>
+                        <p style="color: var(--light-text); margin-bottom: 15px;">글로벌 온라인 교육 플랫폼에서 다양한 언어로 자연스러운 발음과 표현을 학습할 수 있는 환경을 제공합니다.</p>
+                        <a href="/html/pages/success/education.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block;">사례 보기 →</a>
                     </div>
                 </div>
             </div>
@@ -165,6 +176,10 @@
 
     <div data-include="/html/components/footer.html"></div>
     <script src="/js/include.js"></script>
+    <script src="/js/page-header.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/mobile-menu.js"></script>
+    <script src="/js/debug.js"></script>
+    <script src="/js/menu-debug.js"></script>
 </body>
 </html> 

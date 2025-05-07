@@ -13,17 +13,30 @@ header.sticky {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    flex-direction: row;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 0;
+    width: 100%;
 }
 
 .logo {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-color);
+    margin-right: 20px;
 }
 
 .logo span {
@@ -33,6 +46,9 @@ header.sticky {
 .navbar-links {
     display: flex;
     align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-grow: 1;
 }
 
 .navbar-links a {
@@ -94,11 +110,12 @@ header.sticky {
     color: var(--primary-color);
 }
 
+/* 모바일 메뉴 스타일은 responsive.css에서 관리됩니다 */
 .mobile-menu-btn {
     display: none;
-    cursor: pointer;
 }
 
+/*
 .mobile-menu-btn span {
     display: block;
     width: 25px;
@@ -107,3 +124,16 @@ header.sticky {
     margin: 5px 0;
     transition: var(--transition);
 }
+
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+*/

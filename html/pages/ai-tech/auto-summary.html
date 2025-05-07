@@ -10,16 +10,7 @@
     <div data-include="/html/components/header.html"></div>
 
     <!-- 페이지 헤더 -->
-    <section class="page-header auto-summary-header">
-        <div class="container">
-            <h1>자동 요약 기술</h1>
-            <p>방대한 정보를 핵심만 추출하여 정보 처리 효율성을 극대화하세요</p>
-            <div class="hero-buttons">
-                <a href="#demo" class="btn glow-effect">데모 체험하기</a>
-                <a href="/html/pages/about/contact.html" class="btn btn-secondary">도입 문의</a>
-            </div>
-        </div>
-    </section>
+    <div data-include="/html/components/page-header.html" data-title="자동 요약 기술" data-image="page-header-bg3.jpeg"></div>
 
     <!-- 핵심 기능 섹션 -->
     <section class="features" style="padding: 80px 0; background: var(--light-bg);">
@@ -91,13 +82,13 @@
                         </p>
                     </div>
                     <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                        <img src="/images/ai-summary1.jpeg" alt="추출적 요약 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/voice-recognition.jpeg" alt="추출적 요약 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     </div>
                 </div>
 
                 <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center; background: white; border-radius: 15px; padding: 30px; box-shadow: var(--box-shadow);">
                     <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; order: 2;">
-                        <img src="/images/ai-summary2.jpeg" alt="생성적 요약 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/voice-synthesis.jpeg" alt="생성적 요약 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     </div>
                     <div style="flex: 1; min-width: 300px; order: 1;">
                         <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: var(--secondary-color);">생성적 요약 기술</h3>
@@ -115,7 +106,7 @@
                         </p>
                     </div>
                     <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                        <img src="/images/ai-summary3.jpeg" alt="맥락 인식 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/language-processing.jpeg" alt="맥락 인식 기술" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     </div>
                 </div>
             </div>
@@ -131,33 +122,33 @@
             </div>
             <div class="tech-grid">
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/legal.jpeg" alt="법률 분야">
+                    <div class="tech-img" style="height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="/images/law.jpeg" alt="법률 분야" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="tech-content" style="padding: 20px;">
+                    <div class="tech-content" style="padding: 20px; display: flex; flex-direction: column; height: 200px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">법률 분야</h3>
-                        <p style="color: var(--light-text); margin-bottom: 15px;">방대한 법률 문서, 판례, 계약서를 신속하게 요약하여 핵심 정보를 파악하고 법률 검토 시간을 단축합니다.</p>
-                        <a href="/html/pages/success/legal.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block;">사례 보기 →</a>
+                        <p style="color: var(--light-text); margin-bottom: 15px; flex-grow: 1;">방대한 법률 문서, 판례, 계약서를 신속하게 요약하여 핵심 정보를 파악하고 법률 검토 시간을 단축합니다.</p>
+                        <a href="/html/pages/success/legal.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block; margin-top: auto;">사례 보기 →</a>
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/research.jpeg" alt="연구 및 학술">
+                    <div class="tech-img" style="height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="/images/academic.jpeg" alt="연구 및 학술" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="tech-content" style="padding: 20px;">
+                    <div class="tech-content" style="padding: 20px; display: flex; flex-direction: column; height: 200px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">연구 및 학술</h3>
-                        <p style="color: var(--light-text); margin-bottom: 15px;">학술 논문과 연구 보고서를 효율적으로 요약하여 빠른 리뷰와 지식 습득을 지원합니다.</p>
-                        <a href="/html/pages/success/academic.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block;">사례 보기 →</a>
+                        <p style="color: var(--light-text); margin-bottom: 15px; flex-grow: 1;">학술 논문과 연구 보고서를 효율적으로 요약하여 빠른 리뷰와 지식 습득을 지원합니다.</p>
+                        <a href="/html/pages/success/academic.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block; margin-top: auto;">사례 보기 →</a>
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/business.jpeg" alt="비즈니스 인텔리전스">
+                    <div class="tech-img" style="height: 220px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <img src="/images/biz_int.jpeg" alt="비즈니스 인텔리전스" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
-                    <div class="tech-content" style="padding: 20px;">
+                    <div class="tech-content" style="padding: 20px; display: flex; flex-direction: column; height: 200px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">비즈니스 인텔리전스</h3>
-                        <p style="color: var(--light-text); margin-bottom: 15px;">시장 보고서, 경쟁사 분석, 내부 문서를 요약하여 신속한 비즈니스 의사결정에 필요한 핵심 정보를 제공합니다.</p>
-                        <a href="/html/pages/success/business.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block;">사례 보기 →</a>
+                        <p style="color: var(--light-text); margin-bottom: 15px; flex-grow: 1;">시장 보고서, 경쟁사 분석, 내부 문서를 요약하여 신속한 비즈니스 의사결정에 필요한 핵심 정보를 제공합니다.</p>
+                        <a href="/html/pages/success/business.html" class="tech-link" style="color: var(--primary-color); font-weight: 500; display: inline-block; margin-top: auto;">사례 보기 →</a>
                     </div>
                 </div>
             </div>
@@ -220,6 +211,10 @@
     <div data-include="/html/components/cta.html"></div>
     <div data-include="/html/components/footer.html"></div>
     <script src="/js/include.js"></script>
+    <script src="/js/page-header.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/mobile-menu.js"></script>
+    <script src="/js/debug.js"></script>
+    <script src="/js/menu-debug.js"></script>
 </body>
 </html> 

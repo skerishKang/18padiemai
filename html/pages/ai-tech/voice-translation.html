@@ -61,6 +61,20 @@
                     <h3>보안 및 개인정보 보호</h3>
                     <p style="color: var(--light-text);">대화 내용의 암호화 및 안전한 처리로 중요한 비즈니스 미팅에서도 안심하고 사용할 수 있습니다.</p>
                 </div>
+                <div class="service-card animate" style="background-color: white; box-shadow: var(--box-shadow);">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>모바일 최적화</h3>
+                    <p style="color: var(--light-text);">스마트폰과 태블릿에 최적화된 사용자 경험을 제공하여 언제 어디서나 손쉽게 번역 서비스를 활용할 수 있습니다.</p>
+                </div>
+                <div class="service-card animate" style="background-color: white; box-shadow: var(--box-shadow);">
+                    <div class="service-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>API 연동 지원</h3>
+                    <p style="color: var(--light-text);">다양한 애플리케이션, 웹사이트, 화상회의 플랫폼과 쉽게 통합할 수 있는 API를 제공하여 기존 시스템에 번역 기능을 손쉽게 추가할 수 있습니다.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -105,7 +119,7 @@
                         </p>
                     </div>
                     <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
-                        <img src="/images/ai-learning.jpeg" alt="자연스러운 음성 합성" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                        <img src="/images/voice-synthesis.jpeg" alt="자연스러운 음성 합성" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
                     </div>
                 </div>
             </div>
@@ -121,8 +135,8 @@
             </div>
             <div class="tech-grid">
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/case-study-5.jpg" alt="비즈니스 컨퍼런스">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/business-conference.jpeg" alt="비즈니스 컨퍼런스" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">글로벌 비즈니스 미팅</h3>
@@ -131,8 +145,8 @@
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/online-education.jpeg" alt="온라인 교육">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/multilang.jpeg" alt="다국어 교육 환경" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">다국어 교육 환경</h3>
@@ -141,8 +155,8 @@
                     </div>
                 </div>
                 <div class="tech-card animate" style="background-color: white; border-radius: 15px; overflow: hidden; box-shadow: var(--box-shadow);">
-                    <div class="tech-img">
-                        <img src="/images/healthcare.jpeg" alt="의료 서비스">
+                    <div class="tech-img" style="height: 220px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                        <img src="/images/healthcare.jpeg" alt="의료 서비스" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="tech-content" style="padding: 20px;">
                         <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--text-color);">의료 서비스</h3>
@@ -166,7 +180,10 @@
                 <p style="color: var(--light-text); margin-bottom: 30px;">
                     곧 체험 가능한 데모가 제공될 예정입니다. 먼저 체험해보고 싶으시다면 아래 버튼을 통해 문의해주세요.
                 </p>
-                <a href="#" class="btn glow-effect">AIRTT</a>
+                <div class="hero-buttons">
+                    <a href="#" class="btn glow-effect">Blog</a>
+                    <a href="#" class="btn btn-secondary">AIRTT</a>
+                </div>
             </div>
         </div>
     </section>
@@ -218,6 +235,10 @@
     <div data-include="/html/components/footer.html"></div>
 
     <script src="/js/include.js"></script>
+    <script src="/js/page-header.js"></script>
     <script src="/js/main.js"></script>
+    <script src="/js/mobile-menu.js"></script>
+    <script src="/js/debug.js"></script>
+    <script src="/js/menu-debug.js"></script>
 </body>
 </html> 
