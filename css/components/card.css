@@ -99,7 +99,7 @@
     transition: var(--transition);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
 }
 
 .case-card:hover {
@@ -118,6 +118,8 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    height: auto;
+    min-height: 180px;
 }
 
 .case-category {
@@ -232,4 +234,19 @@
 .feature-content p {
     color: var(--light-text);
     line-height: 1.6;
+}
+
+/* 모바일에서 콘텐츠 높이 자동 조절 */
+@media (max-width: 576px) {
+    .case-content {
+        height: auto;
+        min-height: auto;
+    }
+    
+    .case-description {
+        overflow: visible;
+        -webkit-line-clamp: initial;
+        -webkit-box-orient: initial;
+        display: block;
+    }
 }
