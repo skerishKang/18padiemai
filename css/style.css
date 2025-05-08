@@ -23,4 +23,15 @@
 
 /* Utilities */
 @import url("/css/utils/animation.css");
-@import url("/css/utils/responsive.css"); 
+@import url("/css/utils/responsive.css");
+
+@media (max-width: 800px) {
+  .hero-image-container,
+  .hero-image {
+    display: block !important;
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 120px !important;
+    visibility: visible !important;
+  }
+} 
