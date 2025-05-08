@@ -288,7 +288,7 @@ function initializeComponents() {
     console.log('[Hero Slider] 컨테이너 요소:', heroSliderContainer);
     
     if (heroSliderContainer) {
-        logToScreen('[Hero Slider] 모바일에서도 실행됨');
+        // logToScreen('[Hero Slider] 모바일에서도 실행됨');
         const heroImages = heroSliderContainer.querySelectorAll('.hero-image');
         console.log('[Hero Slider] 이미지 요소들:', heroImages);
         console.log('[Hero Slider] 발견된 이미지 개수:', heroImages.length);
