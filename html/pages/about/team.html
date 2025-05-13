@@ -5,6 +5,43 @@
   <title>팀 소개 - PadiemAI</title>
   <meta name="description" content="PadiemAI의 AI 전문가, 개발자, 기획자, 디자이너로 구성된 혁신적인 팀을 소개합니다.">
   <link rel="stylesheet" href="/css/style.css">
+  <style>
+    @media (max-width: 900px) {
+      .executives {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        align-items: center !important;
+      }
+      .executive-card {
+        width: 90% !important;
+        max-width: 400px !important;
+      }
+    }
+    .core-team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    @media (max-width: 600px) {
+      .core-team-grid {
+        grid-template-columns: 1fr;
+      }
+      .core-team-image-row {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .core-team-image-row {
+      display: grid;
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+      margin: 2rem 0;
+      grid-template-columns: 1fr;
+    }
+  </style>
 </head>
 <body>
   <div data-include="/html/components/header.html"></div>
@@ -23,33 +60,42 @@
         <h2 class="section-title">리더십 팀</h2>
         <p class="section-subtitle">PadiemAI를 이끄는 핵심 인재들을 소개합니다</p>
         
-        <div class="team-grid">
-          <div class="team-member">
-            <img src="/images/team-ceo.jpg" alt="CEO 이미지" class="team-img">
-            <h3>김민수</h3>
-            <p class="team-position">CEO / 공동창업자</p>
-            <p class="team-bio">10년 이상의 AI 연구 경력과 스타트업 경험을 바탕으로 PadiemAI의 비전과 전략을 이끌고 있습니다.</p>
+        <div class="executives" style="display: flex; gap: 2rem; justify-content: center; align-items: flex-start; margin: 2rem 0;">
+          <div class="executive-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem; width: 45%; min-height: 700px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;">
+            <img src="/images/ceo.png" alt="CEO 사진" style="width:160px; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;">
+            <h2><span style="color:#e57373; font-weight:bold;">CEO</span> 강혜림</h2>
+            <ul style="margin:0 0 1rem 0; padding-left:1.2rem;">
+              <li>경찰대학교 공공안전행정 박사</li>
+              <li>광주인공지능청년협회 회장</li>
+              <li>중국 법인 위해은린민런 유한공사 대표</li>
+              <li>한국여성안전협회 회장</li>
+              <li>AI 범죄예방시스템(주)파디엠 대표</li>
+            </ul>
+            <div style="margin-bottom:1rem;">
+              <strong style="color:#d32f2f;">주요 수상 경력</strong>
+              <ul style="margin:0; padding-left:1.2rem;">
+                <li>올해의 청년기업인 중기부 장관상 수상</li>
+                <li>세계여성발명대회 대상, 금상, 동상 수상</li>
+              </ul>
+              <div style="display:flex; gap:1rem; margin-top:1rem;">
+                <img src="/images/prize1.png" alt="수상 이미지1" style="height:60px; border-radius:8px;">
+                <img src="/images/prize2.png" alt="수상 이미지2" style="height:60px; border-radius:8px;">
+              </div>
+            </div>
           </div>
-          
-          <div class="team-member">
-            <img src="/images/team-cto.jpg" alt="CTO 이미지" class="team-img">
-            <h3>박지훈</h3>
-            <p class="team-position">CTO / 공동창업자</p>
-            <p class="team-bio">머신러닝 전문가로서 PadiemAI의 핵심 기술 개발을 주도하고 기술 로드맵을 설계합니다.</p>
-          </div>
-          
-          <div class="team-member">
-            <img src="/images/team-coo.jpg" alt="COO 이미지" class="team-img">
-            <h3>이지연</h3>
-            <p class="team-position">COO</p>
-            <p class="team-bio">글로벌 기업 경영 경험을 바탕으로 PadiemAI의 비즈니스 운영과 성장 전략을 책임지고 있습니다.</p>
-          </div>
-          
-          <div class="team-member">
-            <img src="/images/team-cmo.jpg" alt="CMO 이미지" class="team-img">
-            <h3>최준호</h3>
-            <p class="team-position">CMO</p>
-            <p class="team-bio">다양한 기업의 마케팅 전략을 성공적으로 이끈 경험을 바탕으로 PadiemAI의 브랜드 전략을 구축합니다.</p>
+          <div class="executive-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 2rem; width: 45%; min-height: 700px; display: flex; flex-direction: column; justify-content: space-between; align-items: flex-start;">
+            <img src="/images/cto.png" alt="CTO 사진" style="width:160px; height:200px; object-fit:cover; border-radius:12px; margin-bottom:1rem;">
+            <h2><span style="color:#64b5f6; font-weight:bold;">CTO</span> 강철원</h2>
+            <ul style="margin:0 0 1rem 0; padding-left:1.2rem;">
+              <li>University of Illinois M.S. Urbana Champaign (Computer Science, Data Science)</li>
+              <li>경찰대학교 치안대학원 (공공안전행정)</li>
+              <li>전남대학교 정책대학원 (행정)</li>
+              <li>연세대학교 창업대학원 (창업, 경영)</li>
+              <li>전남대학교 법과대학 (법학, 행정학)</li>
+            </ul>
+            <div style="margin-top:auto;">
+              <img src="/images/univer.png" alt="대학 로고" style="height:40px; margin-top:1rem;">
+            </div>
           </div>
         </div>
       </div>
@@ -60,6 +106,10 @@
         <h2 class="section-title">핵심 팀</h2>
         <p class="section-subtitle">PadiemAI의 성공을 함께 만들어가는 전문가들입니다</p>
         
+        <div class="core-team-image-row">
+          <img src="/images/파디엠 소개(영어).png/파디엠 소개(영어)_8.png" alt="파디엠 소개 8" style="width: 100%; max-width: 1200px; border-radius: 16px; object-fit: cover;">
+          <img src="/images/파디엠 소개(영어).png/파디엠 소개(영어)_9.png" alt="파디엠 소개 9" style="width: 100%; max-width: 1200px; border-radius: 16px; object-fit: cover;">
+        </div>
         <div class="team-departments">
           <div class="team-department">
             <i class="fas fa-code service-icon"></i>
@@ -71,7 +121,6 @@
               <li>음성처리, 자연어처리 분야 특허 보유</li>
             </ul>
           </div>
-          
           <div class="team-department">
             <i class="fas fa-laptop service-icon"></i>
             <h3 class="service-title">제품 및 서비스팀</h3>
@@ -82,7 +131,6 @@
               <li>데이터 기반 제품 개선 및 최적화</li>
             </ul>
           </div>
-          
           <div class="team-department">
             <i class="fas fa-handshake service-icon"></i>
             <h3 class="service-title">비즈니스 및 마케팅팀</h3>
