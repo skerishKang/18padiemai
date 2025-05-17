@@ -1,0 +1,44 @@
+baseURL = "http://example.org/"
+languageCode = "ko"
+title = "파디엠 블로그"
+theme = "PaperMod"
+defaultContentLanguage = "ko"
+paginate = 10
+
+[params]
+  homeInfoParams = { Title = "파디엠 블로그", Content = "AI, 기술, 회사 소식, 연구 등 다양한 이야기를 전합니다." }
+  description = "파디엠 공식 블로그"
+  author = "Padiem AI"
+  ShowShareButtons = true
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+
+[[menu.main]]
+  name = "홈"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "블로그"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "소개"
+  url = "/about/"
+  weight = 3
+
+[[menu.main]]
+  name = "문의"
+  url = "/contact/"
+  weight = 4
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/padiemai"
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:info@padiem.net"
