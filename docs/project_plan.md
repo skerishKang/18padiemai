@@ -612,7 +612,7 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - 다양한 화면 크기에서 일관된 UI 제공을 위한 미디어 쿼리 보강
 
 ### 해야할 일
-- 다양한 모바일 기기에서 최종 확인
+- 다양한 모바일 기기에서 최종 테스트
 - 페이지 로딩 성능 최적화 검토
 - 이미지 최적화를 통한 모바일 속도 개선
 
@@ -731,3 +731,57 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - 크롬 개발자도구 네트워크 탭으로 느린 리소스 추가 확인
 - 이미지 WebP 변환, 압축, CDN 적용 등 추가 최적화 검토
 - 외부 JS/CSS 리소스 병목 시 분리/지연 로딩 적용
+
+## [2024-06] 인덱스 페이지 첫 번째 카드 링크 변경
+
+### 완료된 일
+- index.html의 첫 번째 카드 링크를 외부(Netlify)에서 내부(index1.html)로 변경함.
+  - target="_blank" 속성도 제거하여 내부 이동이 자연스럽게 되도록 개선.
+  - 방문자가 첫 번째 카드를 클릭하면 padiem.net/index1.html로 이동하게 됨.
+
+## [2024-06-27] 블로그 메뉴 및 메인 페이지 생성
+- 헤더 네비게이션에 '블로그' 메뉴를 추가하여 /blog/index.html로 연결함.
+- blog/index.html을 기존 홈페이지 스타일을 참고해 생성. 샘플 글 2개 포함.
+- 블로그 메인 페이지에서 최신 글 목록을 볼 수 있도록 설계.
+
+## 2024-XX-XX
+- Hugo PaperMod 테마 blog/themes/PaperMod에 설치 (git clone)
+- config.toml에 theme = "PaperMod" 설정 추가
+- README.md 참고하여 추가 설정 및 커스터마이징 준비
+- blog_old/7.NNN_1p.md의 내용을 PaperMod 포스트 형식으로 변환하여 content/posts/7-neural-networks.md로 등록
+
+## 프로젝트 진행 계획 및 기록 (2024-05-08)
+
+### 완료된 일
+- images 폴더 내 모든 이미지 파일을 페이지별/기능별 하위 폴더로 정리
+    - ai-tech, about, education, index, services, success 등
+- 각 HTML 파일에서 이미지 경로를 새 폴더 구조에 맞게 일괄 수정
+    - ai-tech, about, education, services, success 등 전체 적용
+- 중복 사용 이미지(예: healthcare.jpeg 등)는 대표 폴더에만 두고 경로만 맞춤
+- old 폴더 내 HTML/이미지는 실제 서비스와 연결되지 않으므로 별도 정리하지 않음
+- tree.md에 최신 폴더/파일 구조 반영
+
+### 해야 할 일
+- 신규 페이지/이미지 추가 시 동일한 폴더 구조 원칙 적용
+- 이미지 파일명은 가급적 영문/숫자/특수문자(언더스코어 등)로 관리
+- 불필요한 이미지/HTML 파일은 주기적으로 정리
+
+### 주의사항
+- 한글 파일명은 윈도우 PowerShell 등에서 이동/복사 시 오류가 발생할 수 있으니 가급적 영문명 사용 권장
+- images/old 폴더 및 old HTML은 현재 서비스와 무관(보관용)
+- 작업 내역 및 폴더 구조 변경 시 반드시 tree.md, project_plan.md 동시 업데이트
+
+## 2024-05-09 중복 이미지 및 Netlify 배포 최적화
+
+### 완료된 일
+- case-study-1.jpg, case-study-2.jpg, case-study-3.jpg 등 중복 이미지 경로를 /images/success/case_study/로 통일
+- /images/services/, /images/ai-tech/voice_recognition/ 내 중복 이미지 삭제
+- Netlify 배포 시 hugo.zip, logs, tests, blog_old, temp_files.txt, temp_tree.txt, tree.md 등 불필요 파일/폴더 제외 설정(netlify.toml)
+
+### 해야 할 일
+- 추가 중복 파일/불필요 파일 발생 시 동일 원칙 적용
+- 신규 이미지/페이지 추가 시 폴더 구조 및 경로 일관성 유지
+
+### 주의사항
+- 실제 서비스에 필요한 파일만 배포되도록 주기적 점검 필요
+- 이미지/파일 삭제 전 반드시 사용처 확인

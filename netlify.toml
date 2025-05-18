@@ -1,0 +1,13 @@
+[build]
+  publish = "public"
+
+[[ignore_files]]
+  files = [
+    "hugo.zip",
+    "logs/*",
+    "tests/*",
+    "blog_old/*",
+    "temp_files.txt",
+    "temp_tree.txt",
+    "tree.md"
+  ] 

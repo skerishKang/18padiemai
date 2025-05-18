@@ -47,5 +47,5 @@
 
 /* 실시간 통역 페이지 헤더 배경 */
 .page-header.interpretation-header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/voice-translation-header.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/ai-tech/voice-translation-header.jpg');
 } 
