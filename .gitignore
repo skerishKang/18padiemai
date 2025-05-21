@@ -1,0 +1,7 @@
+# Hugo 운영/배포 제외 폴더 및 파일
+/tools/
+/backup/
+
+.cursor/
+*.zip
+*.txt 
