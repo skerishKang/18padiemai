@@ -457,7 +457,7 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - 활용 사례 이미지 경로 수정으로 주제에 더 적합한 이미지 적용
 - 모든 이미지 컨테이너(.tech-img)에 고정 높이 220px 적용
 - 이미지에 동일한 스타일 속성 적용(width: 100%, height: 100%, object-fit: cover)
-- 이미지 중앙 정렬을 위한 flex 속성 추가(display: flex, align-items: center, justify-content: center)
+- 이미지 중앙 정렬을 위한 flex 정렬 속성 추가(display: flex, align-items: center, justify-content: center)
 - 다른 AI 기술 페이지와 동일한 이미지 처리 방식 적용으로 일관성 확보
 
 ### 해야할 일
@@ -750,70 +750,59 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - README.md 참고하여 추가 설정 및 커스터마이징 준비
 - blog_old/7.NNN_1p.md의 내용을 PaperMod 포스트 형식으로 변환하여 content/posts/7-neural-networks.md로 등록
 
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
+## 프로젝트 진행 계획 및 이력 (2025-05-21, Hugo 루트 구조 적용)
 
-### 완료된 작업
+### 현재 폴더 구조
+- archetypes/
+- content/
+- themes/
+- static/
+- config.toml
+- (이외 백업용 blog/, blog_old/ 등)
 
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
+### 후속 작업 단계 및 체크리스트
 
-## 다음 할 일
+#### 1단계: 프로젝트 구조 및 문서 정비
+- [x] tree.md: 최종 폴더 구조 기준으로 갱신
+- [ ] project_plan.md: 전체 일정, 콘텐츠 이관 내역, 메뉴 설계 등 최신화
+- [ ] blog/ 폴더: 백업 후 삭제 여부 논의 필요
 
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
+#### 2단계: 설정 파일 점검 및 메뉴 구성
+- [ ] config.toml: 사이트 제목, 언어, baseURL, [menu] 항목 점검 및 보완
+- [ ] netlify.toml, robots.txt, sitemap.xml 등 SEO/배포 관련 파일 점검
 
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
+#### 3단계: 정적 자산 정리 및 중복 제거
+- [ ] /images, /css, /js 등 중복/미사용 파일 점검
+- [ ] logs/duplicate_image_check.txt 등 참고하여 불필요 자산 목록화
+- [ ] blog_old/, html/, docs/의 콘텐츠 중 이관 대상 선별
 
-### 완료된 작업
+#### 4단계: 콘텐츠 기획 및 마크다운 작성
+- [ ] content/information/aitools, youtube, product 폴더별 기획안 및 마크다운 파일 작성
+- [ ] content/posts/에 기존 블로그 글 또는 트렌드 콘텐츠 .md 파일 등록
+- [ ] 기존 HTML 중 재사용할 내용은 마크다운으로 변환
 
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
+#### 5단계: 메뉴 및 페이지 흐름 점검
+- [ ] 헤더/푸터 메뉴, URL 구조, 메뉴 클릭 시 연결 경로 등 점검
 
-## 다음 할 일
+## [5단계] 메뉴 및 페이지 흐름 점검 결과 (2025-05-21)
 
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
+- config.toml의 메뉴 구조(홈, 회사소개, 정보, 블로그)는 실제 content/ 폴더 구조(company, information, posts)와 일치함
+- 정보(information) 하위에 aitools, youtube, product 등 세부 카테고리 존재(향후 메뉴 확장 가능)
+- 서비스, 성공사례, 소개(about) 등은 현재 별도 폴더/메뉴로 노출되어 있지 않음 → 필요시 메뉴 및 폴더 추가 제안
+- 각 메뉴 클릭 시 연결 경로는 정상이나, 세부 카테고리(예: 서비스, 성공사례) 노출 및 연결은 추후 콘텐츠 확장 시 반영 필요
+- 사용자 동선 기준으로 메뉴명, 순서, URL 등은 config.toml에서 즉시 수정 가능
+- 모든 점검 및 수정 내역은 project_plan.md에 기록, 변경사항은 커밋/푸시로 관리
 
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
+---
 
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
+## 완료된 작업
+- Hugo 표준 루트 구조로 blog/ 하위 폴더(content, themes, archetypes, static, config.toml 등) 이동
+- tree.md, project_plan.md 최신화
+- index1.html → content/company/index1.md로 이관 (마크다운 변환)
+- information/aitools, youtube, product 폴더 생성
+- config.toml 메뉴 구조 개편
+- 커스텀 404.html 생성
+- 전체 변경사항 GitHub 백업
 
 ## 다음 할 일
 
@@ -822,182 +811,8 @@ Padiem AI 회사의 공식 웹사이트 개발 프로젝트입니다. 이 웹사
 - 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
 - tree.md, project_plan.md 등 문서화 파일 주기적 갱신
 
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
-
-## 프로젝트 진행 계획 및 이력 (2025-05-21)
-
-### 완료된 작업
-
-- 전체 파일 및 변경사항 GitHub 백업 완료
-- index1.html → blog/content/company/index1.md로 이관 (Hugo 마크다운 변환)
-- blog/content/information/ 폴더 생성
-  - blog/content/information/aitools 생성
-  - blog/content/information/youtube 생성
-  - blog/content/information/product 생성
-
-## 다음 할 일
-
-- information 하위 각 폴더별 콘텐츠 기획 및 마크다운 파일 작성
-- 기존 HTML/정적 파일에서 이관할 정보 선별
-- 메뉴 구조(config.toml) 및 URL 매핑 정책 수립
-- tree.md, project_plan.md 등 문서화 파일 주기적 갱신
+## [6단계] 배포 전 최종 점검 및 QA (2025-05-21)
+- baseURL을 실제 배포 주소(https://padiemai.netlify.app/)로 변경
+- 주요 콘텐츠/링크/이미지/반응형/브라우저 호환성 점검 예정
+- sitemap.xml, robots.txt 등 SEO 설정 최종 확인 예정
+- Netlify 등 실제 배포 준비
