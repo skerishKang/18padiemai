@@ -22,18 +22,18 @@ paginate = 10
   weight = 1
 
 [[menu.main]]
-  name = "블로그"
-  url = "/posts/"
+  name = "회사소개"
+  url = "/company/"
   weight = 2
 
 [[menu.main]]
-  name = "소개"
-  url = "/about/"
+  name = "정보"
+  url = "/information/"
   weight = 3
 
 [[menu.main]]
-  name = "문의"
-  url = "/contact/"
+  name = "블로그"
+  url = "/posts/"
   weight = 4
 
 [[params.socialIcons]]
