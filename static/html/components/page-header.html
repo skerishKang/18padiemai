@@ -33,4 +33,19 @@
         margin-bottom: 50px !important;
     }
 }
-</style> 
+</style>
+
+<!-- 이미지 헤더 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const ph = document.currentScript.parentElement;
+    const imgName = ph.getAttribute('data-image');
+    if(imgName) {
+      const img = document.createElement('img');
+      img.src = '/images/ai-tech/voice_recognition/' + imgName;
+      img.alt = ph.getAttribute('data-title') || '';
+      img.style = 'width:100%;max-width:600px;display:block;margin:0 auto 2rem;';
+      ph.insertBefore(img, ph.firstChild);
+    }
+  });
+</script> 
