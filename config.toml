@@ -1,3 +1,5 @@
+disableKinds = ["home"]
+
 baseURL = "https://padiemai.netlify.app/"
 languageCode = "ko"
 title = "파디엠 블로그"
