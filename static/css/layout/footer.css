@@ -41,8 +41,32 @@ footer {
     grid-column: span 2;
 }
 
+/* 마지막 컬럼(연락처)도 더 넓게 설정 */
+.footer-col:last-child {
+    grid-column: span 2;
+    min-width: 350px;
+}
+
+.footer-col:last-child .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+}
+
+.footer-col:last-child .contact-info li {
+    flex: 0 0 calc(50% - 1rem);
+    min-width: 280px;
+}
+
+@media (max-width: 1200px) {
+    .footer-col:last-child .contact-info li {
+        flex: 0 0 100%;
+    }
+}
+
 @media (max-width: 768px) {
-    .footer-col:first-child {
+    .footer-col:first-child,
+    .footer-col:last-child {
         grid-column: 1 / -1; /* 모바일에서는 전체 너비 차지 */
     }
 }
