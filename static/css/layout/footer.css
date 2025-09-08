@@ -48,19 +48,20 @@ footer {
 }
 
 .footer-col:last-child .contact-info {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
+    display: block;
 }
 
 .footer-col:last-child .contact-info li {
-    flex: 0 0 calc(33.333% - 1rem);
-    min-width: 320px;
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
 }
 
 @media (max-width: 1200px) {
     .footer-col:last-child .contact-info li {
-        flex: 0 0 100%;
+        display: block;
+        margin-bottom: 1rem;
     }
 }
 
