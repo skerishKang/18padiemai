@@ -41,10 +41,10 @@ footer {
     grid-column: span 2;
 }
 
-/* 마지막 컬럼(연락처)도 더 넓게 설정 */
+/* 마지막 컬럼(연락처)도 더 넓게 설정 - 1.5배 확장 */
 .footer-col:last-child {
-    grid-column: span 2;
-    min-width: 350px;
+    grid-column: span 3;
+    min-width: 500px;
 }
 
 .footer-col:last-child .contact-info {
@@ -54,8 +54,8 @@ footer {
 }
 
 .footer-col:last-child .contact-info li {
-    flex: 0 0 calc(50% - 1rem);
-    min-width: 280px;
+    flex: 0 0 calc(33.333% - 1rem);
+    min-width: 320px;
 }
 
 @media (max-width: 1200px) {
